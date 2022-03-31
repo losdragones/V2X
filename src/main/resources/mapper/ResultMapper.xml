@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.tongji.mapper.ResultMapper">
+    <insert id="insertBatch">
+        INSERT INTO `Result`(`time_stamp`,`gps_id`,`utc_time`,`latitude`,`ns`,`longitude`,`ew`,`gps_status`,`distance`,`velocity`,`acceleration`) VALUES
+        <foreach collection="resultList" separator="," item="item">
+            (#{item.timeStamp},#{item.gpsId},#{item.utcTime},#{item.latitude},#{item.ns},#{item.longitude},#{item.ew},#{item.gpsStatus},#{item.distance},#{item.velocity},#{item.acceleration})
+        </foreach>
+    </insert>
+
+</mapper>
